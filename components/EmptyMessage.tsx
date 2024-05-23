@@ -14,7 +14,6 @@ const EmptyMessage = ({ prompt }: promptType) => {
     <motion.div
       className="flex-1"
       initial={{ opacity: 0 }}
-      // // animate={{ opacity: 1, scale: 1 }}
       animate={{ opacity: 1 }}
       transition={{
         ease: "easeIn",

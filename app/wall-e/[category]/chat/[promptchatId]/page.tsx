@@ -23,7 +23,6 @@ const Page = async ({ params }: ChatPageProps) => {
       <ChatHistory data={chatsHistory} prompt={prompt} />
       <div className="flex flex-col w-full justify-center items-center">
         <h5>{prompt?.name}</h5>
-
         <Image
           src={prompt?.src as string}
           width={92}

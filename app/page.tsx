@@ -1,145 +1,278 @@
-import { Button, buttonVariants } from "@/components/ui/button";
+import Image from "next/image";
+import React from "react";
 
 import {
   SignInButton,
-  UserButton,
   SignUpButton,
   SignedIn,
   SignedOut,
+  UserButton,
 } from "@clerk/nextjs";
-import { ArrowRight } from "lucide-react";
-
-import Image from "next/image";
+import { Button, buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import Carousel from "@/components/carousel";
 
-export default function Home() {
+const features = [
+  {
+    name: "Customization",
+    description:
+      "Allow users to specify the personality, skills, reaction, and domain of their AI ChatBots. ",
+    image: "/f1.png",
+    alt: "Secure",
+    color: "blue",
+  },
+  {
+    name: "Secure ",
+    description:
+      "secure user authentication and management for Authentication and Authorization.",
+    image: "/f2.png",
+    alt: "Customizable",
+  },
+  {
+    name: "User-Interface",
+    description:
+      "user interface is designed for simplicity and efficiency, and featuring a clean. Enjoy an intuitive experience with clear navigation, and customizable elements, enhancing your productivity and satisfaction.",
+    image: "/f3.png",
+    alt: "Customizable",
+  },
+  {
+    name: "PDF Generation",
+    description:
+      "The ability to capture and save your AI companion’s responses in PDF format.",
+    image: "/pdf.png",
+    alt: "Customizable",
+  },
+  {
+    name: "Share",
+    description:
+      "Allow users to select either private (individual use) or public (shared) access for the AI ChatBots they have generated.",
+    image: "/share.png",
+    alt: "Customizable",
+  },
+  {
+    name: "Memorization",
+    image: "/chat.png",
+    description:
+      "Create AI Chatbot that memorize entire chat history and last messages.",
+    alt: "Customizable",
+  },
+];
+
+const page = () => {
   return (
-    <div className="pb-5 flex flex-col items-center max-w-screen bg-gradient-to-r from-rose-100 to-teal-100">
-      <nav className="sticky top-0 bg-white/30 w-full text-black backdrop-blur-md p-2 flex justify-between items-center">
-        <Image src={"/logo.png"} width={98} height={98} alt="wall-e logo" />
-        <div className="flex mx-4">
+    <>
+      {/* Navigation Bar */}
+      <div className="sticky top-0 bg-white z-10 flex justify-between items-center px-10 border-b-2 ">
+        <div className="flex justify-center items-center">
+          <Image src={"/Wall-E (3).svg"} width={100} height={100} alt="logo" />
+          <h2 className="text-2xl font-semibold">Wall-E</h2>
+        </div>
+        <div>
           <SignedOut>
-            <Button className="mr-2">
+            <Button variant={"link"} size={"lg"} className="text-base mr-2">
               <SignInButton>Login</SignInButton>
             </Button>
-            <Button className="ml-2">
-              <SignUpButton>Register</SignUpButton>
+            <Button className="ml-2 text-base" size={"lg"}>
+              <SignUpButton>Get Started</SignUpButton>
             </Button>
           </SignedOut>
           <SignedIn>
             <UserButton afterSignOutUrl="/">Log out</UserButton>
           </SignedIn>
         </div>
-      </nav>
-      <section className="p-2 flex flex-col items-center justify-center mt-24">
-        <h2 className="text-center text-5xl font-bold">
-          Try all
-          <span className="text-blue-600"> Ai assistance </span>
-          in one place!
-        </h2>
-        <p className="text-center mt-5 text-zinc-700">
-          Wall-e allows you to use the power of Artificial Intelligence all in
-          one convenient location.
-        </p>
-        <Link
-          className={buttonVariants({
-            size: "lg",
-            className: "mt-5",
-          })}
-          href="/wall-e"
-        >
-          Get started <ArrowRight className="ml-2 h-5 w-5" />
-        </Link>
+      </div>
+      {/* Section 1 */}
+      <section className="md:py-20 py-10 bg-gradient-to-r from gray-00 to-gray-200 spacey-10">
+        <div className="container mx-auto text-center">
+          <div
+            className="text-6xl flex justify-center font-bold md:px-20 pb-10
+            text-gradient
+            bg-gradient-to-r
+            from-blue-500
+            to-green-300
+            bg-clip-text
+            text-transparent
+            "
+          >
+            Create and Interact with Your AI Companion in seconds
+          </div>
+          <p
+            className="text-lg md:text-xl md-10
+            bg-gradient-to-r
+            from-black
+            to-gray-400
+            bg-clip-text
+            text-transparent
+            font-bold
+            "
+          >
+            We have a lot of ai assistant to choose from, pick or create one
+            based on your need and get started.
+          </p>
+          <div className="flex gap-4 justify-center pt-10">
+            <button className="bg-blue-500 text-white px-10 py-4 rounded-md text-lg font-bold">
+              <Link href="/wall-e">Get started</Link>
+            </button>
+            <button className="bg-gray-600 text-white px-10 py-4 rounded-md text-lg font-bold">
+              <a href="#learn-more">Learn More</a>
+            </button>
+          </div>
+
+          <div className="pt-10 flex justify-center">
+            <Image
+              id="learn-more"
+              className="rounded-xl  md:w-1/2 p-4 md:p-0"
+              src={"/section-one.jpg"}
+              width={4200}
+              height={4200}
+              alt="section One"
+            />
+          </div>
+        </div>
       </section>
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <div className="mt-16 flow-root sm:mt-24">
-          <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
-            {/* <Image
-              src="/"
-              alt="uploading preview"
-              width={1419}
-              height={732}
-              quality={100}
-              className="rounded-md bg-white p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-gray-900/10"
-            /> */}
+      {/* Section 2 */}
+      <div>
+        <div className="flex-col items-center justify-center">
+          <Carousel />
+        </div>
+      </div>
+      <div className="md:flex-row flex-col items-center flex justify-center pb-10">
+        <div className="p-5 justify-center md:w-1/3">
+          <div
+            className="
+                bg-gradient-to-r
+                from-blue-800
+                to-green-300
+                bg-clip-text
+                text-transparent
+                text-4xl
+                md:text-6xl
+                font-bold
+                pb-10S
+                "
+          >
+            From idea to real platform
           </div>
+          <div className="text-2xl mb-4 mt-4">
+            Wall-E allows you to use the power of create a custom Ai Companion.
+          </div>
+          <Link
+            className={buttonVariants({
+              size: "lg",
+              className:
+                "mt-5 bg-blue-500 text-white p-4 justify-center flex md:w-1/3 rounded-lg hover:bg-blue-600",
+            })}
+            href="/wall-e"
+          >
+            Get started <ArrowRight className="ml-2 h-5 w-5" />
+          </Link>
+        </div>
+
+        <Image
+          className="rounded-xl  md:w-2/5 p-4 md:p-0 "
+          src={"/section-two.jpg"}
+          width={4200}
+          height={4200}
+          alt="section two"
+        />
+      </div>
+      <div
+        className="text-3xl flex justify-center md:text-5xl font-bold pt-5 pb-10
+                bg-gradient-to-r from-purple-400 to-blue-800 bg-clip-text text-transparent"
+      >
+        Product Features
+      </div>
+      <div className="grid grid-cols-1 p-4 md:grid md:grid-cols-3 gap-4 md:px-40">
+        {features.map((feature, index) => (
+          <div
+            key={index}
+            className="flex-col space-y-6 pb-10 border p-8 rounded-xl 
+            items-center justify-center w-full hover:scale-105 transform transition-all duration-500 ease-in-out"
+          >
+            <div className="text-gray-600 text-3xl font-bold">
+              <Image
+                src={feature.image}
+                alt={feature.alt}
+                width={120}
+                height={120}
+                className="object-contain flex mb-10"
+              />
+              <div>
+                <div className="text-2xl pb-4 bg-gradient-to-t from-black to-gray-400 bg-clip-text text-transparent">
+                  {feature.name}
+                </div>
+                <div className="bg-gradient-to-r from-gray-800 to-gray-500 bg-clip-text text-transparent text-lg">
+                  {feature.description}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Section */}
+      <div className="items-center flex justify-center md:py-4">
+        <div
+          className="text-center md:text-6xl text-4xl 
+        bg-gradient-to-r
+        from-blue-800
+        to-purple-300
+        bg-clip-text
+        text-transparent
+        pb-10
+        font-bold
+        
+        "
+        >
+          Create and use AI Companion.Made Simple.
+          <div className="justify-center items-center flex md:pt-10 p-4">
+            <Image
+              className="rounded-xl w-2/3"
+              src={"/section-three.jpg"}
+              width={1024}
+              height={1024}
+              alt="section three"
+            />
+          </div>
+        </div>
+      </div>
+      {/*  */}
+      <div className="md:py-20 p-10">
+        <div className="border-[1px] md:w-2/3 mx-auto p-10 rounded-xl">
+          <div className="text-4xl font-bold mb-5">
+            Start Creating your AI Companion today.
+          </div>
+          <div>
+            Curious about how Wall-E work? Get start now to learn more about our
+            platform.
+          </div>
+
+          <button className="bg-blue-500 text-white px-6 py-3 md:w-1/4 mt-5 rounded-lg hover:bg-blue-600">
+            <Link href="/wall-e">Get started</Link>
+          </button>
         </div>
       </div>
 
-      {/* Feature section */}
-      <div className="p-2 mx-auto mb-24 mt-24">
-        <div className="mb-12 px-6">
-          <div className="mx-auto text-center">
-            <h2 className="mt-2 font-bold text-4xl text-gray-900 ">
-              Start using in minutes
-            </h2>
-            <p className="mt-4 text-lg text-gray-600">
-              Using all ai in the same time has never been easier than with
-              Wall-e.
-            </p>
-          </div>
-        </div>
-
-        {/* steps */}
-        <ol className="my-8 space-y-4 pt-8 md:flex md:space-x-12 md:space-y-0">
-          <li className="md:flex-1">
-            <div className="flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4">
-              <span className="text-sm font-medium text-blue-600">Step 1</span>
-              <span className="text-xl font-semibold">
-                Enter your information
-              </span>
-              <span className="mt-2 text-zinc-700">
-                Either starting account or create account.
-                <Link
-                  href="/sign-up"
-                  className="text-blue-700 underline underline-offset-2"
-                >
-                  create account
-                </Link>
-                .
-              </span>
+      {/* Footer */}
+      <div
+        className="
+    border-t-[1px]
+    hidden
+    md:block
+    bg-indigo-400
+    "
+      >
+        <div className="flex justify-evenly gap-4 p-4">
+          <div>
+            <div className="flex text-white flex-col p-4 cursor-pointer text-xl">
+              All rights reserved. @2023 by Bird Inc.
             </div>
-          </li>
-          <li className="md:flex-1">
-            <div className="flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4">
-              <span className="text-sm font-medium text-blue-600">Step 2</span>
-              <span className="text-xl font-semibold">
-                Chose your ai assistant
-              </span>
-              <span className="mt-2 text-zinc-700">
-                We have a lot of ai to chose from, pick one based on your need
-                and get started.
-              </span>
-            </div>
-          </li>
-          <li className="md:flex-1">
-            <div className="flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4">
-              <span className="text-sm font-medium text-blue-600">Step 3</span>
-              <span className="text-xl font-semibold">
-                Start writing prompts
-              </span>
-              <span className="mt-2 text-zinc-700">
-                It&apos;s that simple. Try out Wall-e today - it really takes
-                less than a minute.
-              </span>
-            </div>
-          </li>
-        </ol>
-      </div>
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <div className="mt-16 flow-root sm:mt-24">
-          <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
-            {/* <Image
-              src="/her1.jpg"
-              alt="uploading preview"
-              width={1419}
-              height={732}
-              quality={100}
-              className="rounded-md bg-white p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-gray-900/10"
-            /> */}
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
-}
+};
+
+export default page;

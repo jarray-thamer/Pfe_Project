@@ -49,7 +49,7 @@ export async function POST(
     chatCompletionMessages.push({ role: "user", content: messageFromUser });
     const chatCompletion = await openai.chat.completions.create({
       messages: chatCompletionMessages,
-      model: "gpt-3.5-turbo-0125",
+      model: "gpt-4",
     });
 
     if (chatCompletion) {
@@ -69,4 +69,3 @@ export async function POST(
     return new NextResponse("Internal Error", { status: 500 });
   }
 }
-

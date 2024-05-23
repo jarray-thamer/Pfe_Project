@@ -11,11 +11,9 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { useState } from "react";
 
-const markdownit = require("markdown-it");
 export interface ChatMessageProps {
   role: "system" | "user" | "assistant";
   msgContent?: string;
@@ -33,8 +31,6 @@ export const ChatMessage = ({
 }: ChatMessageProps) => {
   const { toast } = useToast();
   const [isPdfGenLoading, setIsPdfGenLoading] = useState(false);
-
-  const pdf = () => {};
 
   const onCopy = () => {
     if (!msgContent) {

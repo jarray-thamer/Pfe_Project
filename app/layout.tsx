@@ -8,7 +8,7 @@ const barlow = Barlow({ subsets: ["latin"], weight: "500" });
 
 export const metadata: Metadata = {
   title: "Wall-E",
-  description: "Most performance All-In-One-Ai Assistant",
+  description: "Share and interact with your AI Companion",
 };
 
 export default function RootLayout({
@@ -32,7 +32,6 @@ export default function RootLayout({
           type="image/x-icon"
         />
         <link rel="icon" href="/android-icon-192x192.png" type="image/x-icon" />
-
         <body className={barlow.className}>
           {children}
           <Toaster />

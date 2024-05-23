@@ -10,11 +10,7 @@ interface ImageUploadProps {
   disabled?: boolean;
 }
 
-export const ImageUpload = ({
-  value,
-  onChange,
-  disabled,
-}: ImageUploadProps) => {
+export const ImageUpload = ({value, onChange, disabled}: ImageUploadProps) => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -33,21 +29,8 @@ export const ImageUpload = ({
         uploadPreset="zifxfvaw"
       >
         <div
-          className="
-            p-4 
-            border-4 
-            border-dashed
-            border-primary/10 
-            rounded-lg 
-            hover:opacity-75 
-            transition 
-            flex 
-            flex-col 
-            space-y-2 
-            items-center 
-            justify-center
-          "
-        >
+          className="p-4 border-4 border-dashed border-primary/10 rounded-lg hover:opacity-75 
+            transition flex flex-col space-y-2 items-center justify-center">
           <div className="relative h-40 w-40">
             <Image
               fill

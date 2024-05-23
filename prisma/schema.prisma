@@ -38,7 +38,6 @@ model Prompt {
   promptHistory ChatHistory[]
 }
 
-// <----- Code ------->
 model ChatHistory {
   id            String @id @default(uuid())
   userId        String

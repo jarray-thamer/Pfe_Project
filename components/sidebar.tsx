@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { cn } from "../lib/utils";
 import Link from "next/link";
+import Image from "next/image";
 
 const ai = [
   {
@@ -40,7 +41,14 @@ const SideBar = () => {
   return (
     <div className="h-full pt-4 flex flex-col bg-white border-r shadow-sm">
       <div className="p-4 pb-2 flex justify-between items-center">
-        <Link href={"/wall-e"}>
+        <Link className="flex items-center " href={"/wall-e"}>
+          <Image
+            className={`${expanded ? "w-16" : "w-0 h-0"}`}
+            width={50}
+            height={50}
+            alt="logo"
+            src={"/Wall-E (3).svg"}
+          />
           <h3
             className={`text-lg  font-bold overflow-hidden transition ${
               expanded ? "w-40" : "w-0 h-0"
@@ -80,7 +88,7 @@ const SideBar = () => {
               {!expanded && (
                 <span
                   className={`
-                      absolute  rounded-md px-2 py-1 ml-14
+                      absolute  rounded-md px-2 py-1 z-10 ml-14
                     bg-indigo-100 text-indigo-800 text-sm
                       invisible opacity-20 -translate-x-3 transition-all
                       group-hover:visible group-hover:opacity-100 group-hover:translate-x-0

@@ -202,9 +202,9 @@ const PromptForm = ({ initialData }: PromptFormProps) => {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="code">code prompt</SelectItem>
+                          <SelectItem value="code">Code Companion</SelectItem>
                           <SelectItem value="conversation">
-                            conversation prompt
+                            Conversation Companion
                           </SelectItem>
                         </SelectContent>
                       </Select>
